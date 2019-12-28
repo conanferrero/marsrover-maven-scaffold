@@ -24,4 +24,7 @@ public class Rover {
         sb.append(this.forward);
         return sb.toString();
     }
+
+    public void move() {
+    }
 }
