@@ -33,35 +33,51 @@ public class Rover {
     public void move() throws Exception {
         switch (this.forward) {
             case "E": {
-                if (this.x + 1 > this.xMax) {
-                    throw new Exception("out of area");
-                }
-                this.x++;
+                moveE();
                 break;
             }
             case "W": {
-                if (this.x - 1 < 0) {
-                    throw new Exception("out of area");
-                }
-                this.x--;
+                moveW();
                 break;
             }
             case "N": {
-                if (this.y + 1 > this.yMax) {
-                    throw new Exception("out of area");
-                }
-                this.y++;
+                moveN();
                 break;
             }
             case "S": {
-                if (this.y - 1 < 0) {
-                    throw new Exception("out of area");
-                }
-                this.y--;
+                moveS();
                 break;
             }
             default:break;
         }
+    }
+
+    private void moveE() throws Exception {
+        if (this.x + 1 > this.xMax) {
+            throw new Exception("out of area");
+        }
+        this.x++;
+    }
+
+    private void moveW() throws Exception {
+        if (this.x - 1 < 0) {
+            throw new Exception("out of area");
+        }
+        this.x--;
+    }
+
+    private void moveN() throws Exception {
+        if (this.y + 1 > this.yMax) {
+            throw new Exception("out of area");
+        }
+        this.y++;
+    }
+
+    private void moveS() throws Exception {
+        if (this.y - 1 < 0) {
+            throw new Exception("out of area");
+        }
+        this.y--;
     }
 
     public void turn(String dir) {
@@ -76,7 +92,9 @@ public class Rover {
             if (0 == index) {
                 index = 3;
             }
-            else index--;
+            else {
+                index--;
+            }
         }
         this.forward = dirList.substring(index, index + 1);
     }
