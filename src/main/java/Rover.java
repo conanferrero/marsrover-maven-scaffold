@@ -5,6 +5,7 @@ public class Rover {
     private int x;
     private int y;
     private String forward;
+    private String dirList = "ESWN";
 
     public Rover(Aera aera) {
         this.xMax = aera.getX();
@@ -52,5 +53,20 @@ public class Rover {
                 break;
             }
         }
+    }
+
+    public void turn(String dir) {
+        int index = dirList.indexOf(this.forward);
+        if ("R".equals(dir))
+        {
+            if (3 == index) index = 0;
+            else index ++;
+        }
+        else if ("L".equals(dir))
+        {
+            if (0 == index) index = 3;
+            else index --;
+        }
+        this.forward = dirList.substring(index, index+1);
     }
 }
