@@ -8,7 +8,9 @@ public class RoverController {
     public String excute(String mission) throws Exception {
         String[] missions = mission.split(";");
         int size = missions.length;
-        if (size < 5) throw new Exception("invalid input");
+        if (size < 5) {
+            throw new Exception("invalid input");
+        }
 
         Aera aera = new Aera(Integer.valueOf(missions[0]), Integer.valueOf(missions[1]));
         Rover rover = new Rover(aera);
@@ -16,8 +18,12 @@ public class RoverController {
 
         if (size > 5) {
             for (int i = 5; i < size; i++) {
-                if ("M".equals(missions[i])) rover.move();
-                else rover.turn(missions[i]);
+                if ("M".equals(missions[i])) {
+                    rover.move();
+                }
+                else {
+                    rover.turn(missions[i]);
+                }
             }
         }
         return rover.getPosition();
