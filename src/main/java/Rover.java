@@ -25,6 +25,28 @@ public class Rover {
         return sb.toString();
     }
 
-    public void move() {
+    public void move() throws Exception {
+        switch (this.forward)
+        {
+            case "E": {
+                if (this.x + 1 > this.xMax) throw new Exception("out of area");
+                this.x ++;
+                break;
+            }
+            case "W": {
+                if (this.x - 1 < 0) throw new Exception("out of area");
+                this.x --;
+                break;
+            }case "N": {
+            if (this.y + 1 > this.yMax) throw new Exception("out of area");
+            this.y ++;
+            break;
+        }
+            case "S": {
+                if (this.y - 1 < 0) throw new Exception("out of area");
+                this.y --;
+                break;
+            }
+        }
     }
 }
