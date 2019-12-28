@@ -31,25 +31,25 @@ public class Rover {
     }
 
     public void move() throws Exception {
-        switch (this.forward)
-        {
+        switch (this.forward) {
             case "E": {
                 if (this.x + 1 > this.xMax) throw new Exception("out of area");
-                this.x ++;
+                this.x++;
                 break;
             }
             case "W": {
                 if (this.x - 1 < 0) throw new Exception("out of area");
-                this.x --;
+                this.x--;
                 break;
-            }case "N": {
-            if (this.y + 1 > this.yMax) throw new Exception("out of area");
-            this.y ++;
-            break;
-        }
+            }
+            case "N": {
+                if (this.y + 1 > this.yMax) throw new Exception("out of area");
+                this.y++;
+                break;
+            }
             case "S": {
                 if (this.y - 1 < 0) throw new Exception("out of area");
-                this.y --;
+                this.y--;
                 break;
             }
         }
@@ -57,16 +57,13 @@ public class Rover {
 
     public void turn(String dir) {
         int index = dirList.indexOf(this.forward);
-        if ("R".equals(dir))
-        {
+        if ("R".equals(dir)) {
             if (3 == index) index = 0;
-            else index ++;
-        }
-        else if ("L".equals(dir))
-        {
+            else index++;
+        } else if ("L".equals(dir)) {
             if (0 == index) index = 3;
-            else index --;
+            else index--;
         }
-        this.forward = dirList.substring(index, index+1);
+        this.forward = dirList.substring(index, index + 1);
     }
 }
