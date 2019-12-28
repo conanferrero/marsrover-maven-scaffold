@@ -11,6 +11,10 @@ public class Rover {
         this.yMax = aera.getY();
     }
 
+    public Rover() {
+
+    }
+
     public void land(int i, int j, String e) {
         this.x = i;
         this.y = j;
